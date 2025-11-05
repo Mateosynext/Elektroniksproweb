@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --color-background: #000000; /* black */
+    --color-foreground: #FFFFFF; /* white */
+    --color-border: rgba(255, 255, 255, 0.1); /* white-10 */
+    --color-input: #1A1A1A; /* gray-900 */
+    --color-ring: #2600ff; /* orange-600 */
+    
+    /* Card Colors */
+    --color-card: #1A1A1A; /* gray-900 */
+    --color-card-foreground: #FFFFFF; /* white */
+    
+    /* Popover Colors */
+    --color-popover: #1A1A1A; /* gray-900 */
+    --color-popover-foreground: #FFFFFF; /* white */
+    
+    /* Muted Colors */
+    --color-muted: #0B1E39; /* navy-900 */
+    --color-muted-foreground: #B3B3B3; /* gray-400 */
+    
+    /* Primary Colors */
+    --color-primary: #2600ff; /* orange-600 */
+    --color-primary-foreground: #FFFFFF; /* white */
+    
+    /* Secondary Colors */
+    --color-secondary: #0B1E39; /* navy-900 */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    
+    /* Accent Colors */
+    --color-accent: #2600ff; /* orange-300 */
+    --color-accent-foreground: #000000; /* black */
+    
+    /* Success Colors */
+    --color-success: #00C851; /* green-500 */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    /* Warning Colors */
+    --color-warning: #FFB300; /* amber-500 */
+    --color-warning-foreground: #000000; /* black */
+    
+    /* Error/Destructive Colors */
+    --color-error: #FF4444; /* red-500 */
+    --color-error-foreground: #FFFFFF; /* white */
+    --color-destructive: #FF4444; /* red-500 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Typography Base Styles */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+
+  body, p, span, div {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-muted);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+  }
+
+  /* Focus Styles */
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+
+  /* Animation Utilities */
+  .animate-fade-in {
+    animation: fadeIn 200ms ease-out;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 300ms ease-in-out;
+  }
+
+  .animate-pulse-subtle {
+    animation: pulseSubtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulseSubtle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
