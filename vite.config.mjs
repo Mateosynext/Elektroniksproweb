@@ -15,5 +15,8 @@ export default defineConfig({
       }
     }
   },
-  base: './', // Cambia esto a relativo
+  base: '/', // IMPORTANTE: Usar ruta absoluta para Vercel
+  server: {
+    port: 3000
+  }
 })
