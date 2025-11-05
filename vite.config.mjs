@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: 'build',
+    outDir: 'build',           // Carpeta de salida para Vercel
     sourcemap: true,
     rollupOptions: {
       output: {
@@ -15,7 +15,7 @@ export default defineConfig({
       }
     }
   },
-  base: '/', // IMPORTANTE: Usar ruta absoluta para Vercel
+  base: '/',                  // Ruta absoluta para producción
   server: {
     port: 3000
   }
